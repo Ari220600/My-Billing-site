@@ -1,0 +1,58 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Billing System</h1>
+    <div>
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName">
+        
+        <label for="productCost">Cost:</label>
+        <input type="number" id="productCost" step="any">
+
+        <label for="costType">Cost Type:</label>
+        <select id="costType" onchange="updateAmountTypeOptions()">
+            <option value="perKg">Rs/Kg</option>
+            <option value="perGram">Rs/Gm</option>
+            <option value="perPiece">Rs/Piece</option>
+        </select>
+
+        <label for="amountType">Amount Type:</label>
+        <select id="amountType">
+        </select>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" step="any">
+        
+        <button onclick="addItem()">Add Item</button>
+    </div>
+
+    <table id="billTable">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="billBody">
+        </tbody>
+    </table>
+
+    <h3>Total: Rs <span id="totalPrice">0.00</span></h3>
+    
+    <button onclick="generatePDF()">Generate PDF</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
